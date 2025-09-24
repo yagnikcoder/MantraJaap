@@ -1,33 +1,33 @@
-import { StyleSheet } from 'react-native';
-import { colors } from '../themes/colors';
+import { StyleSheet } from "react-native";
+import { colors } from "../themes/colors";
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 10,
-    justifyContent: 'space-between',
-    minHeight: 50, 
+    justifyContent: "space-between",
+    minHeight: 50,
   },
   headerTitle: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     right: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: -1, 
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: -1,
   },
-  headerTextStyle:{
+  headerTextStyle: {
     color: colors.whiteColor,
     opacity: 0.9,
     fontSize: 15,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   modalOverlay: {
     flex: 1,
     backgroundColor: colors.grayTransparent,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalContainer: {
     backgroundColor: colors.whiteColor,
@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     shadowColor: colors.blackColor,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -59,6 +59,18 @@ const styles = StyleSheet.create({
   rightIcon: {
     fontSize: 20,
     color: colors.blackColor,
+  },
+  closeButton: {
+    backgroundColor: colors.primaryColor,
+    padding: 12,
+    borderRadius: 8,
+    marginTop: 16,
+    alignItems: "center",
+  },
+  closeButtonText: {
+    color: "white",
+    fontWeight: "600",
+    fontSize: 16,
   },
 });
 

@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
-import { Modal, StatusBar, Text, TouchableOpacity, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import styles from './headerComponent.style';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import DatePickerComponent from './datePicker/datePickerComponent';
+import React, { useState } from "react";
+import {
+  Modal,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+} from "react-native";
+import { colors } from "../themes/colors";
+import { useNavigation } from "@react-navigation/native";
+import headerStyles from "./headerComponent.style";
+import { SafeAreaView } from "react-native-safe-area-context";
+import DatePickerComponent from "./datePicker/datePickerComponent";
 
 interface HeaderComponentProps {
   leftIcon?: any;
@@ -47,25 +55,25 @@ const HeaderComponent = ({
 
   const onPressRightIcon = () => {
     // Toggle resetTrigger to reset date picker when modal opens
-    setResetTrigger(prev => !prev);
+    setResetTrigger((prev) => !prev);
     setOpenModal(true);
   };
 
   return (
-    <SafeAreaView edges={['top']}>
+    <SafeAreaView edges={["top"]}>
       <StatusBar hidden={true} />
 
-      <View style={styles.container}>
+      <View style={headerStyles.container}>
         {showLeftIcon && (
           <TouchableOpacity
             onPress={onPressLeftIcon}
-            style={styles.leftIconContainer}
+            style={headerStyles.leftIconContainer}
           >
-            <Text style={styles.leftIcon}>{leftIcon}</Text>
+            <Text style={headerStyles.leftIcon}>{leftIcon}</Text>
           </TouchableOpacity>
         )}
-        <View style={styles.headerTitle}>
-          <Text style={headerTextStyle || styles.headerTextStyle}>
+        <View style={headerStyles.headerTitle}>
+          <Text style={headerTextStyle || headerStyles.headerTextStyle}>
             {headerTitle}
           </Text>
         </View>
@@ -73,9 +81,9 @@ const HeaderComponent = ({
         {showRightIcon && (
           <TouchableOpacity
             onPress={onPressRightIcon}
-            style={styles.leftIconContainer}
+            style={headerStyles.leftIconContainer}
           >
-            <Text style={styles.rightIcon}>{rightIcon}</Text>
+            <Text style={headerStyles.rightIcon}>{rightIcon}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -86,25 +94,33 @@ const HeaderComponent = ({
         visible={openModal}
         onRequestClose={() => setOpenModal(false)}
       >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContainer}>
+        <View style={headerStyles.modalOverlay}>
+          <View style={[headerStyles.modalContainer, { paddingBottom: 20 }]}>
             <DatePickerComponent
               resetTrigger={resetTrigger}
               onRangeSelect={(start, end) => {
                 const fmt = (d: Date) =>
-                  `${String(d.getDate()).padStart(2, '0')}-${String(
-                    d.getMonth() + 1,
-                  ).padStart(2, '0')}-${d.getFullYear()}`;
+                  `${String(d.getDate()).padStart(2, "0")}-${String(
+                    d.getMonth() + 1
+                  ).padStart(2, "0")}-${d.getFullYear()}`;
                 if (start) {
-                  console.log('Selected Start Date:', fmt(start));
+                  console.log("Selected Start Date:", fmt(start));
                 }
                 if (end) {
-                  console.log('Selected End Date:', fmt(end));
+                  console.log("Selected End Date:", fmt(end));
                 }
                 onDateRangeSelect?.(start, end);
                 setOpenModal(false);
               }}
             />
+            {/* Close button at the top right */}
+            <TouchableOpacity
+              style={headerStyles.closeButton}
+              onPress={() => setOpenModal(false)}
+              activeOpacity={0.7}
+            >
+              <Text style={headerStyles.closeButtonText}>Close</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </Modal>

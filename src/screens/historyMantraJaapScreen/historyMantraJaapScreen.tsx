@@ -4,9 +4,9 @@ import { Text, View, FlatList } from 'react-native';
 import styles from './historyMantraJaapScreen.style';
 import HeaderComponent from '../../components/headerComponent';
 import { constKeyword } from '../../utility/constKeyword';
-import { useAppSelector } from '../../hooks';
 import { colors } from '../../themes/colors';
 import { BackArrowIcon, BirthdayCalendarIcon } from '../../utility/SvgIcons';
+import { useAppSelector } from '../../ hooks';
 
 const HistoryMantraJaapScreen = () => {
   // ---------------------------------------------------
