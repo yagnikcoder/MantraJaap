@@ -1,4 +1,6 @@
-import { ActivityIndicator, Text, View } from 'react-native';
+import { ActivityIndicator } from 'react-native';
+import { useEffect } from 'react';
+import BootSplash from 'react-native-bootsplash';
 import HeaderComponent from './src/components/headerComponent';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,7 +11,17 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './src/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
-function AppContent() {
+const AppContent = () => {
+  useEffect(() => {
+    const init = async () => {
+      // Initialize any other async tasks here if needed
+    };
+
+    init().finally(async () => {
+      await BootSplash.hide({ fade: true });
+      console.log('BootSplash has been hidden successfully');
+    });
+  }, []);
   const Stack = createStackNavigator();
 
   return (
