@@ -6,6 +6,7 @@ import DateTimePicker, {
 import { View } from 'react-native';
 import { datePickerStyles } from './datePickerComponent.style';
 import dayjs from 'dayjs';
+import { colors } from '../../themes/colors';
 
 interface DatePickerComponentProps {
   onRangeSelect?: (start: Date, end: Date) => void;
@@ -49,7 +50,7 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = ({
           setStartDate(startDate);
           setEndDate(endDate);
         }}
-        styles={{ ...defaultStyles, ...datePickerStyles }}
+        styles={{ ...defaultStyles, ...datePickerStyles, }}
         containerHeight={340}
         monthsFormat="short"
         weekdaysFormat="short"

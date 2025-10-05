@@ -1,23 +1,21 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../themes/colors';
 export const datePickerStyles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    borderRadius: 18,
-    padding: 8,
-  },
   today: {
     borderColor: colors.primaryColor,
     borderWidth: 2,
-    borderRadius:10
+    borderRadius:10,
+    color: colors.primaryColor,
+    backgroundColor: colors.primaryColor,
   },
   selected: {
     backgroundColor: colors.primaryColor,
+    borderColor: colors.primaryColor,
     borderWidth: 2,
-    borderRadius:10
+    borderRadius:10,
   },
   selected_label: {
-    color: '#fff',
+    color: colors.blackColor,
     fontWeight: 'bold',
   },
   day: {
@@ -45,5 +43,36 @@ export const datePickerStyles = StyleSheet.create({
   },
   disabled: {
     opacity: 0.3,
+  },
+  day_label:{
+    color: colors.blackColor,
+  },
+  button_next:{
+    backgroundColor: colors.primaryColor,
+    borderRadius: 10,
+    padding: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_next_text:{
+    color: colors.blackColor,
+    fontWeight: 'bold',
+  },
+  button_prev:{
+    backgroundColor: colors.primaryColor,
+    borderRadius: 10,
+    padding: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_prev_text:{
+    color: colors.blackColor,
+    fontWeight: 'bold',
+  },
+  month_selector_label:{
+    color: colors.blackColor,
+  },
+  year_selector_label:{
+    color: colors.blackColor,
   },
 });
